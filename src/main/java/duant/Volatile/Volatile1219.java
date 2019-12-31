@@ -1,4 +1,4 @@
-package duant.volatile_;
+package duant.Volatile;
 
 /**
  * @Author: duant

@@ -1,5 +1,7 @@
 package duant.lock;
 
+import duant.Enum.EnumTest;
+
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -12,12 +14,12 @@ public class CountDownLatchTest {
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(5);
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 1; i <= 5; i++) {
             final int num = i;
             new Thread(() -> {
-                System.out.println(" t " + num + "离开");
+                System.out.println(Thread.currentThread().getName() + " 离开 ");
                 countDownLatch.countDown();
-            },"Thread - " + i).start();
+            }, EnumTest.forEachEnum(i).getMsg()).start();
         }
         countDownLatch.await();
         System.out.println(" 全部离开 ");
