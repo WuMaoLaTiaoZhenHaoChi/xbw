@@ -19,7 +19,7 @@ public class CountDownLatchTest {
             new Thread(() -> {
                 System.out.println(Thread.currentThread().getName() + " 离开 ");
                 countDownLatch.countDown();
-            }, EnumTest.forEachEnum(i).getMsg()).start();
+            },EnumTest.forEachEnum(i).getMsg()).start();
         }
         countDownLatch.await();
         System.out.println(" 全部离开 ");
