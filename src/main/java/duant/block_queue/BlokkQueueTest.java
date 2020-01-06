@@ -7,7 +7,7 @@ import java.util.concurrent.BlockingQueue;
  * @Author: duant
  * @Date: 2020/01/02 10:18
  */
-public class BlcokQueueTest {
+public class BlokkQueueTest {
 
     public static void main(String[] args) {
         BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<>(3);
