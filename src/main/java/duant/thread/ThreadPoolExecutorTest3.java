@@ -9,12 +9,12 @@ public class ThreadPoolExecutorTest3 {
     public static void main(String[] args) {
 
         MyThread3 thread1 = new MyThread3("lockA","lockB");
-        MyThread3 thread2 = new MyThread3("lockB","lockA");
+//        MyThread3 thread2 = new MyThread3("lockB","lockA");
 
 
         new Thread(thread1).start();
 
-        new Thread(thread2).start();
+//        new Thread(thread2).start();
 
     }
 
@@ -42,19 +42,6 @@ class MyThread3 implements Runnable{
             }
             synchronized ((lockB)){
                 System.out.println(Thread.currentThread().getName() + " 持有线程 " + lockB + " ，继续获取线程 " + lockA);
-
-            }
-        }
-
-        synchronized(lockB){
-            System.out.println(Thread.currentThread().getName() + " 持有线程 " + lockB + " ，继续获取线程 " + lockA);
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            synchronized ((lockA)){
-                System.out.println(Thread.currentThread().getName() + " 持有线程 " + lockA + " ，继续获取线程 " + lockB);
 
             }
         }
